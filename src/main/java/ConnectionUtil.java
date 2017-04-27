@@ -11,12 +11,12 @@ public class ConnectionUtil {
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
 
-    private static Connection connection;
 
     public static Connection getConnection() {
+        Connection connection = null;
         try {
             connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-            if(connection == null) throw new RuntimeException("cannot get connection");
+            if (connection == null) throw new RuntimeException("cannot get connection");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -25,7 +25,7 @@ public class ConnectionUtil {
 
     public static void dbInit() throws SQLException {
         executeSql("DROP TABLE IF EXISTS Apartments");
-        executeSql("CREATE TABLE IF NOT EXISTS Apartments "
+        executeSql("CREATE TABLE Apartments "
                 + "("
                 + "id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, "
                 + "price INT, "
