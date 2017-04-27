@@ -24,6 +24,7 @@ public class ConnectionUtil {
     }
 
     public static void dbInit() throws SQLException {
+        executeSql("DROP TABLE IF EXISTS Apartments");
         executeSql("CREATE TABLE IF NOT EXISTS Apartments "
                 + "("
                 + "id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, "

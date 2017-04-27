@@ -32,37 +32,58 @@ public class Main {
                     System.out.println(a);
                 break;
             case 1:
-                System.out.println("price: ");
-                String price = scanner.nextLine();
-                for (Apartment a : apartmentsDao.getByPrice(Integer.parseInt(price)))
-                    System.out.println(a);
+                printByPrice(scanner);
                 break;
             case 2:
-                System.out.println("area: ");
-                String area = scanner.nextLine();
-                for (Apartment a : apartmentsDao.getByArea(Integer.parseInt(area)))
-                    System.out.println(a);
+                printByArea(scanner);
                 break;
             case 3:
-                System.out.println("quantity: ");
-                String quantity = scanner.nextLine();
-                for (Apartment a : apartmentsDao.getByRoomsQuantity(Integer.parseInt(quantity)))
-                    System.out.println(a);
+                printByQuantity(scanner);
                 break;
             case 4:
-                System.out.println("region: ");
-                String region = scanner.nextLine();
-                for (Apartment a : apartmentsDao.getByRegion(region))
-                    System.out.println(a);
+                printByRegion(scanner);
                 break;
             case 5:
-                System.out.println("address: ");
-                String address = scanner.nextLine();
-                for (Apartment a : apartmentsDao.getByAddress(address))
-                    System.out.println(a);
+                printByAddress(scanner);
                 break;
             default:
                 return;
         }
+    }
+
+    private static void printByAddress(Scanner scanner) throws SQLException {
+        System.out.println("address: ");
+        String address = scanner.nextLine();
+        for (Apartment a : apartmentsDao.getByAddress(address))
+            System.out.println(a);
+    }
+
+    private static void printByRegion(Scanner scanner) throws SQLException {
+        System.out.println("region: ");
+        String region = scanner.nextLine();
+        for (Apartment a : apartmentsDao.getByRegion(region))
+            System.out.println(a);
+    }
+
+    private static void printByQuantity(Scanner scanner) throws SQLException {
+        System.out.println("quantity: ");
+        String quantity = scanner.nextLine();
+        for (Apartment a : apartmentsDao.getByRoomsQuantity(Integer.parseInt(quantity)))
+            System.out.println(a);
+    }
+
+    private static void printByArea(Scanner scanner) throws SQLException {
+        System.out.println("area: ");
+        String area = scanner.nextLine();
+        for (Apartment a : apartmentsDao.getByArea(Integer.parseInt(area)))
+            System.out.println(a);
+    }
+
+    private static void printByPrice(Scanner scanner) throws SQLException {
+        System.out.println("price: ");
+        String price = scanner.nextLine();
+        for (Apartment a : apartmentsDao.getByPrice(Integer.parseInt(price)))
+            System.out.println(a);
+
     }
 }
